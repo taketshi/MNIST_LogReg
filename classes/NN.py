@@ -14,7 +14,7 @@ class NN:
         self.depth = len(self.layer_sizes)
 
         if self.activation_functions == None: 
-            self.activation_functions = ['sigmoid'] * (self.n_layers - 1)
+            self.activation_functions = [None] * (self.depth - 1)
         
         # Create model
         layers = []
@@ -26,7 +26,6 @@ class NN:
                 elif self.activation_functions[i] == 'relu':
                     layers.append(nn.ReLU())
         # Final model
-        print(layers)
         self.model = nn.Sequential(*layers)
 
     def forward_pass(self, input):
